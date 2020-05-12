@@ -1,0 +1,25 @@
+@import "../../styles/index.scss";
+.el-form {
+    width: 250px;
+    margin: 0 auto;
+    button {
+      letter-spacing: 15px;
+      text-indent: 15px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  .tip {
+    width: 250px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      font-size: 13px;
+      span {
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+  }
