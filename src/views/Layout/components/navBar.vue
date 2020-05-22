@@ -8,7 +8,7 @@
       background-color="rgba(47, 65, 85, .7)"
       text-color="#becbd8"
       active-text-color="#349dfb">
-      <el-menu-item index="/Home">首页</el-menu-item>
+      <el-menu-item index="/home">首页</el-menu-item>
       <el-menu-item index="/find">发现</el-menu-item>
 
       <div class="user-info">
@@ -78,7 +78,7 @@ export default {
      * 点击打开登陆弹框
      */
     showLoginDialog() {
-
+      this.$store.commit('SET_LOGINDIALOG', true)
     }
   }
 }

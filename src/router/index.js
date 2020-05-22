@@ -4,17 +4,25 @@ import Layout from '@/views/Layout'
 
 Vue.use(VueRouter)
 
-  const routes = [
+/**
+ * 重写路由的push方法
+ */
+const routerPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(error => error)
+}
+
+const routes = [
   {
     path: '/',
-    redirect: '/Home'
+    redirect: '/home'
   },
   {
     path: '/',
     component: Layout,
     children: [
       {
-        path: '/Home',
+        path: '/home',
         name: 'Home',
         component: () => import('../views/Home/index')
       }

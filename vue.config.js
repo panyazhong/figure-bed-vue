@@ -22,6 +22,7 @@ module.exports = {
       .end()
   },
   devServer: {
+    // host: 'localhost.charlesproxy.com',
     proxy: {
       '/api': {
         target: 'http://localhost:3000',

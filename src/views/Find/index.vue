@@ -1,362 +1,96 @@
 <template>
-  <div class="find">
-    <el-row>
-
-    </el-row>
-
-    <vue-waterfall-easy ref="waterfall" :imgsArr="imgsArr" @scrollReachBottom="getData">
-      <template slot-scope="scope">
-        <!-- <el-card :body-style="{ padding: '0px' }"> -->
-          <div class="card-foot">
-            <div class="div-desc">
-              <span class="img-desc">{{scope.value.name}}你大号打打杀杀爱爱时胶带机哦你按键</span>
-            </div>
-            <div class="bottom clearfix">
-              <el-avatar size="medium" :src="scope.value.href"></el-avatar>
-              <div> 
-                <span class="author-name">{{scope.value.author_name}}</span>采集到 <br/>
-                <span class="time">{{scope.value.img_type}}</span>
-              </div> 
-            </div>
-          </div>
-        <!-- </el-card> -->
-      </template>
-      
-      <div slot="waterfall-over">没有更多图片啦...</div>
-    </vue-waterfall-easy>
+  <div id="app">
   </div>
 </template>
 
-<script type="text/ecmascript-6">
-import vueWaterfallEasy from 'vue-waterfall-easy'
+<script>
+import { mapGetters } from "vuex"
 export default {
+  name: "App",
   data() {
     return {
-      group: 0,
-      imgsArr: [
-        {
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },
-      ]
-    }
-  },
-  components: {
-    vueWaterfallEasy
+      _beforeUnload_time: 0,
+      _gap_time: 0,
+      is_fireFox: navigator.userAgent.indexOf("Firefox") > -1,
+    };
   },
   methods: {
-    getData() {
-      if (this.group >= 1) {
-        this.$refs.waterfall.waterfallOver()
-        return
+    beforeunloadHandler(e) {
+      this._beforeUnload_time = new Date().getTime();
+      if (!navigator.sendBeacon) {
+        const end_time = Date.now()
+        let params = {
+          start_time: this.start_time,
+          end_time: end_time
+        }
+        if (params.end_time - params.start_time > 60000) {
+          var xhr = new XMLHttpRequest();
+          let url = 'http://192.168.120.227:3000/api/pic/report'
+          xhr.open("POST", url, true);
+          xhr.setRequestHeader('Authorization','Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWU4YzJiODg3NmMwNDgzMmVmZmI0MjJhIiwiaWF0IjoxNTkwMDQxMzg3LCJleHAiOjE1OTAwNTIxODd9.wJaCldkNBIeePC-CrYZM1H0_EwFwy8sO90m34zWNa9w')
+          xhr.send(JSON.stringify(params));
+        }
+        e = e || window.event
+        if (e) {
+          e.returnValue = 'close tip'
+        }
+        return 'close tip'
       }
-      setTimeout(() => {
-        this.imgsArr = this.imgsArr.concat([
-        {
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          href: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          href: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        },{
-          src: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          href: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png',
-          name: 'hambuger',
-          author_name: 'dapan',
-          img_type: '风景'
-        }])
-      }, 3000);
-      this.group++
-    }
-  }
+      
+    },
+    unloadHandler(e) {
+      // this._gap_time = new Date().getTime() - this._beforeUnload_time;
+
+      // //判断是窗口关闭还是刷新
+      // localStorage.setItem('time', this._gap_time)
+      // if (this._gap_time <= 5) {
+        // 发送设置同步 (退出登陆的api)
+      if (navigator.sendBeacon) {
+        let params = {
+          start_time: this.start_time,
+          end_time: Date.now()
+        }
+        
+        let token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ'
+        let module = JSON.stringify({
+          "dashboard": 2,
+          "detail": 3
+        })
+        if (params.end_time - params.start_time > 60000) {
+          let blob = new Blob([`token=${token}&start_time=${params.start_time}&end_time=${params.end_time}&module=${module}`], {type : 'application/x-www-form-urlencoded'});
+
+          navigator.sendBeacon('http://192.168.120.227:3000/api/pic/report', blob)
+        }
+      }
+      // }
+    },
+  },
+  computed: {
+    ...mapGetters([
+      'start_time'
+    ])
+  },
+
+  mounted() {
+    window.addEventListener("beforeunload", e => {
+        this.beforeunloadHandler(e)
+        
+        this.unloadHandler();
+        
+    });
+    window.addEventListener("unload", async e => {
+        this.unloadHandler(e)
+    });
+  },
+  destroyed() {
+    window.removeEventListener("beforeunload", e =>
+      this.beforeunloadHandler(e)
+    );
+    window.removeEventListener("unload", e => this.unloadHandler(e));
+  },
 }
 </script>
 
-<style scoped lang="scss">
-  @import "../../styles/index.scss";
-  .find {
-    margin-top: $navbarHeight;
-    height: calc(100vh - 60px);
-    ::v-deep .img-inner-box {
-      .card-foot {
-        div {
-          padding: 10px 10px 10px 10px;
-          text-align: left;
-          color: #666;
-          font-size: 13px;
-          .img-desc {
-            color: #333;
-          }
-          .author-name, .time {
-            color: $blue;
-            margin-right: 5px;
-          }
-        }
-        div.div-desc {
-          border-bottom: 1px solid #ddd;
-        }
-        div:nth-of-type(2) {
-          display: flex;
-          align-items: center;
-          padding: 5px 10px;
-        }
-      }
-    }
-    ::v-deep .vue-waterfall-easy {
-      .over {
-        padding: 20px;
-        font-size: 14px !important;
-        color: #666 !important;
-      }
-    }
-  }
+<style>
 </style>
+

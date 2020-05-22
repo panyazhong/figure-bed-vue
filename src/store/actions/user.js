@@ -1,6 +1,6 @@
 import {userLoginApi,
   getUserInfoApi} from "@/api/user"
-import {setCookie} from '@/utils/cookie'
+import { setToken } from '@/utils/cookie'
 import store from '@/store'
 
 const userAction = {
@@ -9,11 +9,11 @@ const userAction = {
     userInfo.password = userInfo.password.trim()
     try {
       let loginResult = await userLoginApi(userInfo)
-      const {token, user_info} = loginResult
+      const {token} = loginResult
       if (token) {
-        setCookie('token', token)
+        console.log(setToken(token))
         commit('SET_TOKEN', token)
-
+        commit('SET_LOGINDIALOG', false)
         store.dispatch('GetInfo')
       }
     } catch (error) {

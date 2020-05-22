@@ -2,7 +2,7 @@
   <div class="">
     <nav-bar></nav-bar>
 
-    <user-login :loginDialog="loginDialog"></user-login>
+    <user-login></user-login>
 
     <app-main></app-main>
   </div>
@@ -12,7 +12,8 @@
 import navBar from './components/navBar'
 import appMain from './components/appMain'
 import userLogin from './components/userLogin'
-import {mapGetters} from 'vuex'
+import {getToken} from '@/utils/cookie'
+import { mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -25,15 +26,18 @@ export default {
     userLogin
   },
   computed: {
-    loginDialog() {
-      return !this.token
-    },
-    ...mapGetters([
-      'token'
-    ])
+  },
+  mounted() {
+    if (getToken()) {
+      const start_time = Date.now()
+      console.log(start_time)
+      this.setStartTime(start_time)
+    }
   },
   methods: {
-
+    ...mapMutations({
+      setStartTime: 'SET_START_TIME'
+    })
   }
 }
 </script>

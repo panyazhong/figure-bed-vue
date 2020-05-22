@@ -1,7 +1,9 @@
-import {getCookie} from '@/utils/cookie'
+import {getToken} from '@/utils/cookie'
 const user = {
   userInfo: {},
-  token: getCookie('token')
+  token: getToken(),
+  loginDialog: false,
+  start_time: ''
 }
 
 export default user

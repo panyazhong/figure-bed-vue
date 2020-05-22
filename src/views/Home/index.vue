@@ -46,7 +46,7 @@ export default {
   .home {
     margin-top: 0px;
     box-sizing: border-box;
-    background: url("http://dapan-figure-bed.test.upcdn.net/image/2020-04-13/96d6f2e7e1f705ab5e59c84a6dc009b2.png") 0px 100%/100% no-repeat content-box;
+    // background: url("http://dapan-figure-bed.test.upcdn.net/image/2020-04-13/96d6f2e7e1f705ab5e59c84a6dc009b2.png") 0px 100%/100% no-repeat content-box;
     min-height: calc(100vh - 0px);
     .home-container {
       background: rgba(255, 255, 255, .7);
